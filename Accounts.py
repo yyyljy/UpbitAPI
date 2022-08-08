@@ -1,6 +1,7 @@
 import requests
 import Settings
 import json
+import PrintLog
 
 """
 KRW 잔액 조회
@@ -13,7 +14,8 @@ def getAllAccounts():
 
 def printAllAccounts():
     for acc in recvData:
-        print(acc)
+        print(str(acc))
+        #PrintLog.pLog(acc)
 
 def getBalanceFromCode(code):
     for key in recvData:
@@ -23,5 +25,11 @@ def getBalanceFromCode(code):
 def getBalanceFromCodeP(code):
     for key in recvData:
         if key['currency'] == code:
-            print(code + " Balance : " + key['balance'])
-            return key['balance']
+            PrintLog.pLog(code + " Balance : " + key['balance'])
+            PrintLog.pLog(code + " Locked  : " + key['locked'])
+            if float(key['balance']) > 0:
+                PrintLog.pLog("return Balance")
+                return key['balance']
+            else:
+                PrintLog.pLog("return Locked")
+                return key['locked']

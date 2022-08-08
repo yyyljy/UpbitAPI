@@ -1,3 +1,4 @@
+import imp
 from ssl import ALERT_DESCRIPTION_ACCESS_DENIED
 from tkinter.filedialog import SaveFileDialog
 import requests
@@ -14,7 +15,7 @@ import Settings
 import Accounts
 import Candles
 import PrintLog
-
+import Policies
 """
 프로그램 시작
 """
@@ -22,7 +23,9 @@ PrintLog.pLog("UPbit Trader starts.")
 Accounts.printAllAccounts()
 
 """
-가격 예측
+가격 예측 / 매매
 """
+Policies.trdDayTradeForHunt("KRW-HUNT","HUNT",10000)
+
 # huntCandle3 = Candles.getDayCandlesTo("KRW-HUNT", "2022-08-02 24:00:00", "2")
 # print(huntCandle3)
