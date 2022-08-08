@@ -27,5 +27,3 @@ Accounts.printAllAccounts()
 """
 Policies.trdDayTradeForHunt("KRW-HUNT","HUNT",10000)
 
-# huntCandle3 = Candles.getDayCandlesTo("KRW-HUNT", "2022-08-02 24:00:00", "2")
-# print(huntCandle3)

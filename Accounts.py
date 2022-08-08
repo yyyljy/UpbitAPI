@@ -14,8 +14,7 @@ def getAllAccounts():
 
 def printAllAccounts():
     for acc in recvData:
-        print(str(acc))
-        #PrintLog.pLog(acc)
+        PrintLog.pLog(str(acc))
 
 def getBalanceFromCode(code):
     for key in recvData:

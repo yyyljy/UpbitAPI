@@ -119,7 +119,6 @@ def deleteOrder(uuidInput):
 
 # 주문하기
 def orderMarketPrice(market, side, volume, price):
-    # 시장가 매수매도
     params = {
         'market': market,
         'side': side,
