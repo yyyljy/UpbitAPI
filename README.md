@@ -1,5 +1,7 @@
 # README
 
+업비트 API GUIDE [https://docs.upbit.com/docs]
+
 ## .gitignore
 - Settings.py
 
