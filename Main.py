@@ -3,18 +3,26 @@ from tkinter.filedialog import SaveFileDialog
 import requests
 from urllib.parse import urlencode, unquote
 import json
+import time
+import pyupbit
+import datetime
+
+"""
+구현 파일 Import
+"""
 import Settings
 import Accounts
 import Candles
+import PrintLog
 
-# krwBalance = Accounts.getBalanceFromCode('KRW')
-# print(krwBalance)
+"""
+프로그램 시작
+"""
+PrintLog.pLog("UPbit Trader starts.")
+Accounts.printAllAccounts()
 
-# huntCandle = Candles.getDayCandle("KRW-HUNT")
-# print(huntCandle)
-
-# huntCandle2 = Candles.getDayCandles("KRW-HUNT", "2")
-# print(huntCandle2)
-
-huntCandle3 = Candles.getDayCandlesTo("KRW-HUNT", "2022-08-02 24:00:00", "2")
-print(huntCandle3)
+"""
+가격 예측
+"""
+# huntCandle3 = Candles.getDayCandlesTo("KRW-HUNT", "2022-08-02 24:00:00", "2")
+# print(huntCandle3)
