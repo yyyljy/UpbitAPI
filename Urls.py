@@ -35,7 +35,6 @@ def PostOrdersURL():
     # requests.post(server_url + '/v1/orders', json=data, headers=headers)
     return Settings.server_url + "/v1/orders"
 
-
 """
 시세 종목 조회
 """
@@ -62,10 +61,16 @@ def getWeeksURL():
 def getMonthsURL():
     return Settings.server_url + "/v1/candles/months"
 
-
 """
 시세 체결 조회
 """
 # 최근 체결 내역
 def getMonthsURL():
     return Settings.server_url + "/v1/trades/ticks"
+
+"""
+시세 Ticker 조회
+"""
+# 현재가 정보
+def getTickerURL():
+    return Settings.server_url + "/v1/ticker"

@@ -115,6 +115,7 @@ def deleteOrder(uuidInput):
         PrintLog.pLog("ERROR : " + res['error']['message'])
         return False
     except:
+        PrintLog.pLog("Delete Order successfully : " + uuidInput)
         return res
 
 # 주문하기
@@ -149,6 +150,7 @@ def orderMarketPrice(market, side, volume, price):
         PrintLog.pLog("ERROR : " + res['error']['message'])
         return False
     except:
+        PrintLog.pLog(side + " Order successfully : " + market + " " + volume + " " + price)
         return res
 """
 # 주문취소 접수 Response

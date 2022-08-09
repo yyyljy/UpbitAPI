@@ -24,3 +24,11 @@ def getDayCandlesTo(market,to,count):
     url = str(Urls.getDaysURL()) + "?market=" + market + "&to=" + to + "&count=" + count
     response = requests.get(url, headers=headers)
     return json.loads(response.text)
+
+"""
+Ticker
+"""
+def getTicker(market):
+    url = Urls.getTickerURL() + "?markets=" + market
+    response = requests.get(url, headers=headers)
+    return response.json()[0]

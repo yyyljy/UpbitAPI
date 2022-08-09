@@ -7,7 +7,32 @@ import Trades
 """
 Bullish(강세)(양봉) 
 Bearish(약세)(음봉)
+bid(매수)
+ask(매도)
 """
+
+def checkPriceAndTrade(market, code, up, down):
+    PrintLog.pLog("checkPriceAndTrade")
+    acc = Accounts.getAccInfo(code)
+    avg_buy_price = float(acc['avg_buy_price'])
+    tick = Candles.getTicker(market)
+    trade_price = float(tick['trade_price'])
+    ceil_price = round(avg_buy_price*(1+up))
+    floor_price = round(avg_buy_price*(1-down))
+    if trade_price >= ceil_price:
+        Trades.orderMarketPrice(market, 'ask', acc['balance'], ceil_price-1)
+    elif trade_price <= floor_price:
+        Trades.orderMarketPrice(market, 'ask', acc['balance'], floor_price-1)
+    else:
+        orderList = Trades.getOrdersList()
+        for order in orderList:
+            if order['market'] == market:
+                # 임시 예외처리
+                if order['uuid'] == '7e28be67-7440-4493-89ce-1d143bbbf8d9':
+                    pass
+                else:
+                    Trades.deleteOrder(order['uuid'])
+        pass 
 
 def trdDayTradeForHunt(market, code, orderKRW):
     candles = Candles.getDayCandles(market,"3")
@@ -23,7 +48,6 @@ def trdDayTradeForHunt(market, code, orderKRW):
                 return False
         PrintLog.pLog("Check Coin Exists in Account")
         balance = Accounts.getBalanceFromCodeP(code)
-        balance = None
         if balance == None:
             PrintLog.pLog("Let's Buy "+ market)
             marketInfo = Trades.getOrderChance(market)
@@ -42,7 +66,7 @@ def trdDayTradeForHunt(market, code, orderKRW):
                         return False
                     else:
                         PrintLog.pLog("Cancel-Bid-Offer-Left Success")
-            # Trades.orderMarketPrice(market,'bid',volume,price+1)
+            Trades.orderMarketPrice(market,'bid',volume,price+1)
             PrintLog.pLog("Order Market : " + market + " Volume : " + str(volume) + " Price : " + str(int(price)+1))
         else:
             PrintLog.pLog("We Have " + market + " Now.")

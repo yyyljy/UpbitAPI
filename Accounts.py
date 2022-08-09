@@ -32,3 +32,8 @@ def getBalanceFromCodeP(code):
             else:
                 PrintLog.pLog("return Locked")
                 return key['locked']
+
+def getAccInfo(code):
+    for key in recvData:
+        if key['currency'] == code:
+            return key
