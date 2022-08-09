@@ -35,5 +35,8 @@ def getBalanceFromCodeP(code):
 
 def getAccInfo(code):
     for key in recvData:
-        if key['currency'] == code:
+        keycode = key['currency']
+        if keycode == code:
             return key
+
+getAccInfo("HUNT")
