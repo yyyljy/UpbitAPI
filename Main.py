@@ -1,20 +1,13 @@
-import imp
 from ssl import ALERT_DESCRIPTION_ACCESS_DENIED
 from tkinter.filedialog import SaveFileDialog
-import requests
 from urllib.parse import urlencode, unquote
-import json
 import time
-import pyupbit
-import datetime
 import schedule
 
 """
 구현 파일 Import
 """
-import Settings
 import Accounts
-import Candles
 import PrintLog
 import Policies
 """
