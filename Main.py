@@ -1,6 +1,3 @@
-from ssl import ALERT_DESCRIPTION_ACCESS_DENIED
-from tkinter.filedialog import SaveFileDialog
-from urllib.parse import urlencode, unquote
 import time
 import schedule
 
