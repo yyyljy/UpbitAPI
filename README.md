@@ -30,7 +30,7 @@ payload = {
 }
 
 jwt_token = jwt.encode(payload, secret_key)
+
 authorization = 'Bearer {}'.format(jwt_token)
-headers = {
-  'Authorization': authorization,
-}
+
+headers = {'Authorization': authorization, }
