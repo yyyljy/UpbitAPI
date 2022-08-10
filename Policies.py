@@ -12,7 +12,7 @@ ask(매도)
 """
 
 def checkPriceAndTrade(market, code, up, down):
-    PrintLog.pLog("checkPriceAndTrade")
+    # PrintLog.pLog("checkPriceAndTrade")
     acc = Accounts.getAccInfo(code)
     avg_buy_price = float(acc['avg_buy_price'])
     tick = Candles.getTicker(market)

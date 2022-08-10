@@ -15,11 +15,13 @@ def getAllAccounts():
 def printAllAccounts():
     for acc in recvData:
         PrintLog.pLog(str(acc))
+    return True
 
 def getBalanceFromCode(code):
     for key in recvData:
         if key['currency'] == code:
             return key['balance']
+    return False
 
 def getBalanceFromCodeP(code):
     for key in recvData:
@@ -32,6 +34,7 @@ def getBalanceFromCodeP(code):
             else:
                 PrintLog.pLog("return Locked")
                 return key['locked']
+    return False
 
 def getAccInfo(code):
     for key in recvData:     
