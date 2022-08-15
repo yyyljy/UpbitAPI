@@ -2,7 +2,8 @@
 
 업비트 API GUIDE [https://docs.upbit.com/docs]
 
-- 백그라운드 실행: nohup python3 filename.py > output.log &
+- 백그라운드 실행: nohup python3 -u filename.py > output.log &
+    - -u 옵션으로 print() output파일에 출력
 - 실행 확인: ps ax | grep .py
 - 프로세스 종료(PID는 ps ax | grep .py로 확인): kill -9 PID
 
