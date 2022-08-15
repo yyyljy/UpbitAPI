@@ -14,6 +14,9 @@ ask(매도)
 def checkPriceAndTrade(market, code, up, down):
     # PrintLog.pLog("checkPriceAndTrade")
     acc = Accounts.getAccInfo(code)
+    if type(acc) == bool:
+        if acc == False:
+            return False
     avg_buy_price = float(acc['avg_buy_price'])
     tick = Candles.getTicker(market)
     trade_price = float(tick['trade_price'])
@@ -27,11 +30,7 @@ def checkPriceAndTrade(market, code, up, down):
         orderList = Trades.getOrdersList()
         for order in orderList:
             if order['market'] == market:
-                # 임시 예외처리
-                if order['uuid'] == '7e28be67-7440-4493-89ce-1d143bbbf8d9':
-                    pass
-                else:
-                    Trades.deleteOrder(order['uuid'])
+                Trades.deleteOrder(order['uuid'])
         pass 
 
 def trdDayTradeForHunt(market, code, orderKRW):
