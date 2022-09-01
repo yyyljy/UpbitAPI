@@ -47,7 +47,7 @@ def trdDayTradeForHunt(market, code, orderKRW):
                 return False
         PrintLog.pLog("Check Coin Exists in Account")
         balance = Accounts.getBalanceFromCodeP(code)
-        if balance == None:
+        if balance == False:
             PrintLog.pLog("Let's Buy "+ market)
             marketInfo = Trades.getOrderChance(market)
             if marketInfo['market']['state'] == 'active':

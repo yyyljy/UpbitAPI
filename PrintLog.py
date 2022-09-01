@@ -8,7 +8,7 @@ import json
 def pLog(str):
     timenow = time.strftime("%Y-%m-%d %H:%M:%S")
     print(timenow + "\t" + str)
-    writeArticleOnWeb(timenow, str)
+    # writeArticleOnWeb(timenow, str)
 
 def writeArticleOnWeb(title, contents):
     url = 'http://yuniverse.me/articles/write/'
