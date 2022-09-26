@@ -39,3 +39,12 @@ jwt_token = jwt.encode(payload, secret_key)
 authorization = 'Bearer {}'.format(jwt_token)
 
 headers = {'Authorization': authorization, }
+
+
+
+
+
+## 발견된 문제점
+
+1. 일정 비율 도달 시 손절 안됨
+2. 같은 자산 보유 중인 경우 조건 충족해도 추가 매수 안하는 알고리즘 작동 안함
